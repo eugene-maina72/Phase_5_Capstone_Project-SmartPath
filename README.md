@@ -1,7 +1,8 @@
 # Phase_5_Capstone_Project-SmartPath
 
 <img src = images\smart_path.png alt = 'Smart Path' width= 300>
-**SmartPath**: Personalized Career Recommendation System.
+
+ **SMART PATH** : Personalized Career Recommendation System.
 
 *****
 
