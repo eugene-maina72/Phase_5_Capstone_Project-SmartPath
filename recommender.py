@@ -1,149 +1,91 @@
-def get_user_profile():
+import numpy as np
+import pandas as pd
+from sklearn.metrics.pairwise import cosine_similarity
 
-    """    
-    Function to collect user profile information including RIASEC scores, education level, and skills.
+job_profiles_and_abilities = pd.read_csv('data\job_profiles_and_abilities.csv')
 
-    Prompts the user to input their RIASEC scores, highest education level, and up to 3 skills they consider strong.
-        1. Collects RIASEC scores from the user.
-        2. Prompts the user to select their highest education level from a predefined list.
-        3. Allows the user to select up to 3 skills they consider their strengths.
-        4. Returns a dictionary containing the user's RIASEC scores, education level, and selected skills.
-    
-    Returns: A dictionary with keys 'RIASEC', 'Education Level', and 'Skills' containing the user's inputs.
-    
+
+def recommend_jobs(user_profile, job_profiles_and_abilities=job_profiles_and_abilities, top_n=5):
+  
     """
-    # Prompt the user to input their RIASEC scores (Realistic, Investigative, Artistic, Social, Enterprising, Conventional)
-    print("Enter your RIASEC Scores (scale of 0–7, separated by commas):")
-    print("Format: R, I, A, S, E, C")
-    r_i_a_s_e_c = input("Enter scores: ").strip().split(',')
+    Recommends top N jobs based on user's RIASEC scores and education level.
+    Filters jobs based on user's selected skills (matched against entries in Skill_1 to Skill_25),
+    but does not use skills for cosine similarity.
 
-    # Converting the input scores to float; fallback to neutral values if input is invalid
-    try:
-        r, i, a, s, e, c = [float(score.strip()) for score in r_i_a_s_e_c]
-    except ValueError:
-        print("Invalid RIASEC input. Using default neutral scores.")
-        r, i, a, s, e, c = [4, 4, 4, 4, 4, 4]  ## Default scores if input is invalid
+    Args:
+        user_profile (dict): Dictionary with keys 'R', 'I', 'A', 'S', 'E', 'C', 'education_level', and 'skills'.
+        job_profiles_and_abilities (pd.DataFrame): Job dataset containing RIASEC, education, and skill columns.
+        top_n (int, optional): Number of job recommendations to return. Defaults to 5.
 
-    ## Prompt user to select their highest education level from a list of 12 categories
-     
-    ## Collect user input for education level
-    edu_input = input("Enter number (1–12): ").strip()
+    Returns:
+        pd.DataFrame: DataFrame with top N recommended jobs sorted by similarity score.
 
-    education_map = {
-        1: "Less than High School",
-        2: "High School Diploma or Equivalent",
-        3: "Post-Secondary Certificate",
-        4: "Some College Courses",
-        5: "Associate Degree",
-        6: "Bachelor's Degree",
-        7: "Post-Baccalaureate's Degree",
-        8: "Master's Degree",
-        9: "Post-Master's Certificate",
-        10: "First Professional Degree",
-        11: "Doctoral Degree",
-        12: "Post-Doctoral Training"
-    }
+    """
 
-    print("\n Select your highest education level:")
-    print("1. Less than High School")
-    print("2. High School Diplolma or Equivalent")
-    print("3. Post-Secondary Certificate")
-    print("4. Some College Courses")
-    print("5. Associate Degree")
-    print("6. Bachelor's Degree")
-    print("7. Post-Baccalaureate's Degree")
-    print("8. Masters Degree")
-    print("9. Post-Master's Certificate")
-    print("10. First Professional Degree")
-    print("11. Doctoral Degree")
-    print("12. Post-Doctoral Training")
+    # Extract RIASEC columns
+    riasec_cols = ['R', 'I', 'A', 'S', 'E', 'C']
 
-   
-    ## Try converting education level to integer; default to "Bachelor's Degree" if input is invalid
-    try:
-        education_level = int(edu_input) <= 12 and int(edu_input) >= 1
-    except ValueError:
-        education_level = 6  ## Default to Bachelor's Degree
+
+    # Extract skill columns from Skill_1 to Skill_25
+    skill_features = [f'Skill_{i}' for i in range(1, 25)]
+
+    # Filter jobs by matching any user skill in any Skill_# column
+    if 'skills' in user_profile is not None and user_profile['skills']:
+        def has_matching_skill(row):
+            return any(skill in row[skill_features].values for skill in user_profile['skills'])
+        job_profiles_and_abilities = job_profiles_and_abilities[job_profiles_and_abilities.apply(has_matching_skill, axis=1)]
+
+    # If no jobs remain after filtering, return empty DataFrame with a message column
+    if job_profiles_and_abilities.empty:
+        return pd.DataFrame({'Message': ["No matching jobs found based on selected skills."]})
+
+    # Normalize RIASEC
+    user_riasec = np.array([
+        user_profile['R'], user_profile['I'], user_profile['A'],
+        user_profile['S'], user_profile['E'], user_profile['C']
+    ]).reshape(1, -1)
+    user_riasec_normalized = user_riasec/ 7.0
+
     
-    edu_level = print(f'{education_map.get(education_level, "Bachelor's Degree")}')
 
-    ## Present a list of skills and prompt the user to select up to 3 they consider their strengths
-    print("\n Select up to 3 skills you consider strong (or press Enter to skip):")
+    # Normalize education
+    user_education_normalized = np.array([user_profile['education_level'] / 12.0]).reshape(1, -1)
+
+    # Combine user vector (only RIASEC + Education)
+    weighted_user_vector = np.hstack([
+        user_riasec_normalized * 0.7,
+        user_education_normalized * 0.3,
+        
+    ])
+
+    # Prepare job matrix
+    job_riasec = job_profiles_and_abilities[riasec_cols].values
+    job_education = job_profiles_and_abilities[['Normalized Education Score']].values
     
-    skill_map = {
-        "1"  : 'Oral Comprehension',
-        "2"  : 'Written Comprehension',
-        "3"  : 'Oral Expression',
-        "4"  : 'Written Expression',
-        "5"  : 'Fluency of Ideas',
-        "6"  : 'Originality',
-        "7"  : 'Problem Sensitivity',
-        "8"  : 'Deductive Reasoning',
-        "9"  : 'Inductive Reasoning',
-        "10" : 'Information Ordering',
-        "11" : 'Category Flexibility',
-        "12" : 'Mathematical Reasoning',
-        "13" : 'Number Facility',
-        "14" : 'Memorization',
-        "15" : 'Speed of Closure',
-        "16" : 'Flexibility of Closure',
-        "17" : 'Perceptual Speed',
-        "18" : 'Spatial Orientation',
-        "19" : 'Visualization',
-        "20" : 'Selective Attention',
-        "21" : 'Time Sharing',
-        "22" : 'Arm-Hand Steadiness',
-        "23" : 'Manual Dexterity',
-        "24" : 'Finger Dexterity',
-        "25" : 'Control Precision',
-        "26" : 'Multilimb Coordination',
-        "27" : 'Response Orientation',
-        "28" : 'Rate Control',
-        "29" : 'Reaction Time',
-        "30" : 'Wrist-Finger Speed',
-        "31" : 'Speed of Limb Movement',
-        "32" : 'Static Strength',
-        "33" : 'Explosive Strength',
-        "34" : 'Dynamic Strength',
-        "35" : 'Trunk Strength',
-        "36" : 'Stamina',
-        "37" : 'Extent Flexibility',
-        "38" : 'Dynamic Flexibility',
-        "39" : 'Gross Body Coordination',
-        "40" : 'Gross Body Equilibrium',
-        "41" : 'Near Vision',
-        "42" : 'Far Vision',
-        "43" : 'Visual Color Discrimination',
-        "44" : 'Night Vision',
-        "45" : 'Peripheral Vision',
-        "46" : 'Depth Perception',
-        "47" : 'Glare Sensitivity',
-        "48" : 'Hearing Sensitivity',
-        "49" : 'Auditory Attention',
-        "50" : 'Sound Localization',
-        "51" : 'Speech Recognition',
-        "52" : 'Speech Clarity'
-    }
 
-    ## Print skill options to the user
-    for k, v in skill_map.items():
-        print(f"{k}. {v}")
+    weighted_job_matrix = np.hstack([
+        job_riasec * 0.7,
+        job_education * 0.3,
+    ])
+
+    # Compute similarity
+    similarity_scores = cosine_similarity(weighted_user_vector, weighted_job_matrix).flatten()
+    job_profiles_and_abilities['Similarity Score'] = similarity_scores
+
+
+
     
-    ## Collect and parse the user's skill choices
-    skill_input = input("Enter skill numbers separated by commas (e.g., 1,3,5): ").strip()
+    # Sorting by similarity score and selecting top N jobs
+    recommended_jobs = job_profiles_and_abilities.sort_values(by='Similarity Score', ascending=False).head(top_n)
 
-    ## Converting selected skill numbers to skill names, filtering only valid inputs
-    user_skills = []
-    if skill_input:
-        user_skills = [skill_map[num.strip()] for num in skill_input.split(',') if num.strip() in skill_map]
-
-    ## Final message before returning the user profile
-    print("\n Thank you. Generating personalized recommendations...\n")
-
-    user_profile = {
-        'R': r, 'I': i, 'A': a, 'S': s, 'E': e, 'C': c,
-        'education_level': education_level ,
-        'skills': user_skills
-                    }
-    ## Return a dictionary with user profile data: RIASEC scores, education level, and skills
-    return user_profile , edu_level
+    # Selecting relevant columns to return
+    recommended_jobs = recommended_jobs[['Title', 'Description', 
+                                         'Education Category Label',
+                                         'Education Level', 
+                                          'Preparation Level',
+                                            'Similarity Score',
+                                            'Normalized Education Score']].style.background_gradient(cmap='YlGn')
+    
+    # Returning the recommended jobs DataFrame
+    
+    return recommended_jobs
