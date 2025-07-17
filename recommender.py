@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 
-job_profiles_and_abilities = pd.read_csv('data\job_profiles_and_abilities.csv')
+job_profiles_and_abilities = pd.read_csv('data/job_profiles_and_abilities.csv')
 
 
 def recommend_jobs(user_profile, job_profiles_and_abilities=job_profiles_and_abilities, top_n=5):
