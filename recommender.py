@@ -146,4 +146,4 @@ def kmeans_svd_recommender(user_profile: dict, job_profile_with_skills=job_profi
                                          'Education Level', 
                                           'Preparation Level',
                                             'Similarity Score',
-                                            'Normalized Education Score']].style.background_gradient(cmap='YlGn')
+                                            'Normalized Education Score']]

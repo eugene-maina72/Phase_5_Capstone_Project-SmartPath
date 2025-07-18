@@ -12,6 +12,7 @@ setup(
         'matplotlib>=3.6',
         'scikit-learn>=1.2',
         'hdbscan>=0.8.29'
+        'streamlit>=1.27'
     ],
     python_requires='>=3.8',
 )

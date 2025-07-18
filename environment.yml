@@ -1,11 +1,12 @@
-name: smartpath-env
+name: smartpath-streamlit
 channels:
   - defaults
   - conda-forge
 dependencies:
   - python=3.10
-  - numpy>=1.23
+  - streamlit>=1.27
   - pandas>=1.5
+  - numpy>=1.23
   - matplotlib>=3.6
   - scikit-learn>=1.2
   - hdbscan>=0.8.29

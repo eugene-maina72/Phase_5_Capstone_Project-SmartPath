@@ -208,3 +208,6 @@ __marimo__/
 
 
 .vscode
+
+user_logs.jsonl
+user_logs.csv
