@@ -1,0 +1,26 @@
+credentials:
+  usernames:
+    allan:
+      email: ofulaallan@gmail.com
+      name: Allan Ofula
+      password: '$2b$12$iSsC1PAOpuP/00ulZXZHNuCAz6fhruIDqO/2jnC9WbaFa3PYlJLti'
+    admin:
+      email: allanofula@gmail.com
+      name: Admin User
+      password: '$2b$12$h/C9Z7s2hPy1lNBCEaPmsOpofRPbPbe2/bQ8STl75sy/f5wDncZlG'
+      role: Admin 
+    testuser:
+      email: allanofula01@gmail.com
+      name: Test Account
+      password: '$2b$12$Un0pLxJnAmz8QvFvkeaB2.Za9EjfExGeN2ir..3BI8onhr4Tu47KK'
+
+cookie:
+  expiry_days: 7
+  key: some_random_key_here
+  name: smartpath_auth
+
+preauthorized:
+  emails:
+    - ofulaallan@gmail.com
+    - allanofula@gmail.com
+
