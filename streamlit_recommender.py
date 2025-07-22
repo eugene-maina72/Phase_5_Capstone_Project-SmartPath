@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from recommender import kmeans_svd_recommender
+from recommender import kmeans_svd_recommender, recommend_jobs
 import json
 from datetime import datetime
 
@@ -75,7 +75,7 @@ if st.button("🚀 Get My Job Matches"):
         log_file.write(json.dumps(log_entry) + "\n")
 
     # Generate recommendations
-    recs = kmeans_svd_recommender(user_profile, job_data)
+    recs = recommend_jobs(user_profile, job_data)
     st.subheader("🧭 Top Career Suggestions Just for You!")
     st.dataframe(recs[['Title', 'Description', 
                         'Education Category Label',
@@ -87,7 +87,8 @@ if st.button("🚀 Get My Job Matches"):
     try:
         df_logs = pd.read_json("user_logs.jsonl", lines=True)
         st.markdown("### 📊 What Users Are Picking")
-        st.bar_chart(df_logs[["R", "I", "A", "S", "E", "C"]].mean())
+        st.bar_chart(df_logs[["R", "I", "A", "S", "E", "C"]].mean(), horizontal=True)
+        st.markdown("### 📊 What Level of education are other Users picking")
         st.line_chart(df_logs["education_level"].value_counts().sort_index())
         df_logs["hour"] = pd.to_datetime(df_logs["timestamp"]).dt.hour
         st.markdown("### ⏰ User Activity by Hour")

@@ -31,17 +31,17 @@ def recommend_jobs(user_profile, job_profiles_and_abilities, top_n=5):
 
 
     # Extract skill columns from Skill_1 to Skill_25
-    skill_features = [f'Skill_{i}' for i in range(1, 25)]
+    #skill_features = [f'Skill_{i}' for i in range(1, 25)]
 
     # Filter jobs by matching any user skill in any Skill_# column
-    if 'skills' in user_profile is not None and user_profile['skills']:
-        def has_matching_skill(row):
-            return any(skill in row[skill_features].values for skill in user_profile['skills'])
-        job_profiles_and_abilities = job_profiles_and_abilities[job_profiles_and_abilities.apply(has_matching_skill, axis=1)]
+    #if 'skills' in user_profile is not None and user_profile['skills']:
+    #    def has_matching_skill(row):
+    #        return any(skill in row[skill_features].values for skill in user_profile['skills'])
+    #    job_profiles_and_abilities = job_profiles_and_abilities[job_profiles_and_abilities.apply(has_matching_skill, axis=1)]
 
     # If no jobs remain after filtering, return empty DataFrame with a message column
-    if job_profiles_and_abilities.empty:
-        return pd.DataFrame({'Message': ["No matching jobs found based on selected skills."]})
+    #if job_profiles_and_abilities.empty:
+    #   return pd.DataFrame({'Message': ["No matching jobs found based on selected skills."]})
 
     # Normalize RIASEC
     user_riasec = np.array([
