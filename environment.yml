@@ -4,9 +4,13 @@ channels:
   - conda-forge
 dependencies:
   - python=3.10
-  - streamlit>=1.27
-  - pandas>=1.5
-  - numpy>=1.23
-  - matplotlib>=3.6
-  - scikit-learn>=1.2
-  - hdbscan>=0.8.29
+  - streamlit
+  - pandas
+  - numpy
+  - scikit-learn
+  - matplotlib
+  - pip
+  - hdbscan
+  - pip:
+      - seaborn  # if you ever use it
+      # (add any pip-only packages here)
