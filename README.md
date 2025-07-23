@@ -89,16 +89,17 @@ SmartPath is built as a capstone project to:
 
 2. Install Dependencies
 
- Choose one of the following methods, based on your environment:
+ * Choose one of the following methods, based on your environment:
 
-- Using pip (recommended for most users and Streamlit Cloud):
+   - Using pip (recommended for most users and Streamlit Cloud):
+     
 
     ```bash
 
     pip install -r requirements.txt
     ```
 
-- Using conda (if you prefer Anaconda/Miniconda):
+   - Using conda (if you prefer Anaconda/Miniconda):
 
     ```bash
 
@@ -108,12 +109,12 @@ SmartPath is built as a capstone project to:
 
 3. Run the Streamlit App
 
-Launch the app from your project directory:
+* Launch the app from your project directory:
 
-```bash
+   ```bash
 
-streamlit run streamlit_recommender.py
-```
+   streamlit run streamlit_recommender.py
+   ```
 
 ## Feedback & Contribution
 
@@ -135,8 +136,8 @@ We would like to express our sincere gratitude to:
 
 - Rachael Nyawira
 
-  - Kenya | Data Scientist | Passionate about using data to transform lives
-        - Email | GitHub | LinkedIn
+  - Kenya | Data Scientist | Passionate about using data to transform lives.
+     - Email | GitHub | LinkedIn
 
 - Beryl Okelo
 
