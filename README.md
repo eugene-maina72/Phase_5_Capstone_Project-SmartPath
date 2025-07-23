@@ -168,7 +168,7 @@ We would like to express our sincere gratitude to:
 
 ```markdown
 The contents of the repo are:
-            .
+.
 ├── streamlit_recommender.py      # Main Streamlit UI
 ├── recommender.py                # Recommender engine, clustering, radar chart
 ├── data/
