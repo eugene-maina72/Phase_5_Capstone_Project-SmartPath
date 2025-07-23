@@ -8,18 +8,18 @@
 
 ## Introduction / Background
 
-In today’s global economy, the job market is evolving rapidly due to technology, automation, and changing skill demands. Meanwhile, students and job seekers—especially youth in underserved areas—struggle to make informed career decisions due to limited access to personalized, up-to-date guidance.
+In today’s global economy, the job market is evolving rapidly due to technological advancements, automation, and shifting skill demands. Meanwhile, students and job seekers—especially youth in underserved areas—struggle to make informed career decisions due to limited access to personalized, up-to-date guidance.
 Traditional career counseling services are often generic, inaccessible, or disconnected from real-world occupational data. As a result, many individuals pursue careers misaligned with their potential, leading to underemployment, poor job satisfaction, and wasted educational resources.
 SmartPath aims to address this gap by leveraging data from the O*NET occupational database to offer intelligent, personalized career recommendations based on a user's skills, interests, and education level.
 
 ## Project Goal / Objective
 
-SmartPath aims to build a personalized, data-driven career recommendation system that:
+* SmartPath aims to build a personalized, data-driven career recommendation system that:
 
--Aligns individual users with career paths based on their unique skills, interests, and educational background.
--Recommends alternative or adjacent careers that fit their profile.
--Provides insights into job requirements, skill gaps, and occupational attributes.
--Empowers users to make confident, informed career decisions using structured occupational data.
+ - Aligns individual users with career paths based on their unique skills, interests, and educational background.
+ - Recommends alternative or adjacent careers that fit their profile.
+ - Provides insights into job requirements, skill gaps, and occupational attributes.
+ - Empowers users to make confident, informed career decisions using structured occupational data.
 
 ## Data Sources
 
@@ -29,6 +29,7 @@ SmartPath aims to build a personalized, data-driven career recommendation system
 *****
 
 ## **SMARTPATH APP**
+[SmartPath](https://smartpath.streamlit.app/)
 
 ## Table of Contents
 
@@ -115,6 +116,9 @@ SmartPath is built as a capstone project to:
 
    streamlit run streamlit_recommender.py
    ```
+### On the cloud
+
+* You can access the app [here](https://smartpath.streamlit.app/) 
 
 ## Feedback & Contribution
 
@@ -124,12 +128,12 @@ SmartPath is built as a capstone project to:
 
 ## Acknowledgements
 
-We would like to express our sincere gratitude to:
+We want to express our sincere gratitude to:
 
 - Moringa School – for providing the learning foundation and project framework.
 - O*NET (Occupational Information Network) – for the rich job dataset that powers this recommendation engine.
 - Career Development Theorists – especially John Holland, for the RIASEC model.
-- Our instructors Mildred Jepkosgei, Antonny Muiko and Brian Chacha (Moringa School) – for mentorship and support in fostering innovative talent.
+- Our instructors, Mildred Jepkosgei, Antonny Muiko and Brian Chacha from Moringa School, for mentorship and support in fostering innovative talent.
 - This work reflects a growing commitment to applying data science in empowering youth, career clarity, and digital transformation in Africa.
 
 ### Authors
@@ -176,7 +180,8 @@ The contents of the repo are:
 │   └── job_profiles_and_abilities.csv
 ├──images
 ├── requirements.txt
-├── environment.yml
+├── Non-Technical_Presentation.pdf
+├── SmartPath.ipynb               #Jupyter Notebook
 ├── logs/                         # User logs, feedback, bookmarks (created automatically)
 │   ├── user_logs.jsonl
 │   ├── user_interactions.csv
