@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='SmartPathClustering',
+    name='SmartPath',
     version='1.0.0',
     description='Career recommendation system using Machine learning Algorithim',
     author='Eugene Maina, Beryl Okelo, Beth Nyambura, Allan Ofula, Rachael Nyawira ',
