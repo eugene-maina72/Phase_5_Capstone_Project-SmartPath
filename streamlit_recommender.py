@@ -231,3 +231,24 @@ if st.button("Submit Feedback"):
     st.success("Thanks for your feedback! 🙏 Your insights make SmartPath even smarter.")
 
 st.caption("All feedback is logged anonymously and will be used to improve future recommendations and model performance.")
+
+# --- Get admin password securely from Streamlit secrets ---
+ADMIN_PASSWORD = st.secrets["admin"]["password"]
+
+with st.sidebar:
+    st.markdown("### Admin Log Download")
+    admin_pw = st.text_input("Enter admin password", type="password")
+    if admin_pw == ADMIN_PASSWORD:
+        log_files = os.listdir("logs")
+        for fname in log_files:
+            fpath = os.path.join("logs", fname)
+            if os.path.isfile(fpath):
+                with open(fpath, "rb") as f:
+                    st.download_button(
+                        f"Download {fname}",
+                        f,
+                        file_name=fname
+                    )
+        st.success("Logs ready for download.")
+    elif admin_pw:
+        st.error("Incorrect password.")
