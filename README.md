@@ -146,7 +146,9 @@ We want to express our sincere gratitude to:
 - Beryl Okelo
 
     - Kenya | Data Scientist | Passionate about using data to transform lives
-        - Email | GitHub | LinkedIn
+        - [Email](mailto:okelloakoth@gmail.com 
+) | [GitHub](https://github.com/BAOKELO 
+) | [LinkedIn](https://www.linkedin.com/in/berylokelo)
 
 - Beth Nyambura
 
@@ -156,7 +158,8 @@ We want to express our sincere gratitude to:
 - Allan Ofula
 
     - Kenya | Data Science Associate | Youth Advocate | Developer of SmartPath | Passionate about using data to transform lives
-        - [Email](mailto:ofulaallan@gmail.com) | GitHub | LinkedIn
+        - [Email](mailto:ofulaallan@gmail.com) | [GitHub](https://github.com/Allan-Ofula 
+) | [LinkedIn](https://www.linkedin.com/in/allan-ofula-b2804911b/)
 
 - Eugene Maina
 
