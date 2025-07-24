@@ -134,7 +134,7 @@ if st.session_state.get("show_recommendations", False) and st.session_state.get(
     # --- Let user pick which job to compare to their profile ---
     job_titles = recs_df['Title'].tolist()
     selected_title = st.selectbox(
-        "Select a job to compare:",
+        "Select a job to compare. The closer the fit, the better the match:",
         job_titles,
         index=st.session_state.get("selected_job_index", 0),
         key="job_selectbox"
