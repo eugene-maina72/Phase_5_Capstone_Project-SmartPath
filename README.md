@@ -118,7 +118,9 @@ SmartPath is built as a capstone project to:
    ```
 ### On the cloud
 
-* You can access the app [here](https://smartpath.streamlit.app/) 
+* You can access the app on the cloud:
+  *  [Version 1](https://smartpath.streamlit.app/)
+  *  [Version 2](https://allan-ofula.streamlit.app/)
 
 ## Feedback & Contribution
 
