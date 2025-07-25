@@ -116,6 +116,8 @@ Supervised ML was used to predict likely job clusters or roles based on labeled 
  ## Deployment (SmartPath App)
 This project is deployed and accessible live via Streamlit Cloud.
 
+**[SmartPath Personalized Career Recommender](https://smartpath.streamlit.app/)** 
+
 **[SmartPath Personalized Career Recommender](https://allan-ofula.streamlit.app/)**
 
 Explore the app, get your recommended career paths, and interact with insightful dashboards instantly!
