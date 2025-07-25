@@ -1,4 +1,4 @@
-# Capstone Project- SmartPath Career Recommender Engine
+# SmartPath Career Recommender Engine
 Empowering informed career decisions through intelligent, data-driven recommendations.
 
 <img src = images\smart_path.png alt = 'Smart Path' width= 300>
