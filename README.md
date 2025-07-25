@@ -140,20 +140,20 @@ We want to express our sincere gratitude to:
 
 - Rachael Nyawira
 
-  - Kenya | Data Scientist | Passionate about using data to transform lives.
-     - Email | GitHub | LinkedIn
+  - Kenya | Data Scientist | Developer of SmartPath | Passionate about using data to transform lives.
+     - [Email](mailto:rachaelnyawira614@gmail.com) | [GitHub](https://github.com/rachael-coder) | LinkedIn
 
 - Beryl Okelo
 
-    - Kenya | Data Scientist | Passionate about using data to transform lives
+    - Kenya | Data Scientist | Developer of SmartPath | Passionate about using data to transform lives
         - [Email](mailto:okelloakoth@gmail.com 
 ) | [GitHub](https://github.com/BAOKELO 
 ) | [LinkedIn](https://www.linkedin.com/in/berylokelo)
 
 - Beth Nyambura
 
-    - Kenya | Data Scientist | Passionate about using data to transform lives
-        - Email | GitHub | LinkedIn
+    - Kenya | Data Scientist | Developer of SmartPath | Passionate about using data to transform lives
+        - [Email](mailto:lizshiru11@gmail.com) | [GitHub](https://github.com/betty254809) | [LinkedIn](https://www.linkedin.com/in/beth-nyambura-b3964b234/)
 
 - Allan Ofula
 
