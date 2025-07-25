@@ -166,7 +166,7 @@ We want to express our sincere gratitude to:
 - Eugene Maina
 
     - Kenya | Data Scientist | Developer of SmartPath | Passionate about using data to transform lives.
-        - [Email](mailto:eugenemaina72@gmail.com) | [GitHub](https://github.com/eugene-maina72) | LinkedIn
+        - [Email](mailto:eugenemaina72@gmail.com) | [GitHub](https://github.com/eugene-maina72) | [LinkedIn](https://www.linkedin.com/in/eugene-maina-4a8b9a128/)
 
 #### Mentors, Reviewers, and Supporters:
 
