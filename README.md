@@ -1,7 +1,9 @@
 # SmartPath Career Recommender Engine
 Empowering informed career decisions through intelligent, data-driven recommendations.
 
-<img src = images\smart_path.png alt = 'Smart Path' width= 300>
+<p align="center">
+  <img src="images/SmartPath_Career_Growth_Logo.png" alt="SmartPath Career Growth Logo" width="600"/>
+</p>
 
 **Discover careers aligned with your strengths, passions, and education.** 
  Powered by RIASEC Science and real-world job market data.
