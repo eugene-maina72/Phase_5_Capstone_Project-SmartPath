@@ -234,7 +234,7 @@ Kenya | Data Scientist | Youth Advocate | Developer of SmartPath | Passionate ab
 
 **Eugene Maina**  
 Kenya | Data Science Learner | Passionate about using data to transform lives  
-[Email](eugenemaina72@gmail.com) | [GitHub](https://github.com/eugene-maina72) | [LinkedIn](https://www.linkedin.com/in/yourlinkedin/)
+[Email](eugenemaina72@gmail.com) | [GitHub](https://github.com/eugene-maina72) | [LinkedIn](https://www.linkedin.com/in/eugene-maina-4a8b9a128/)
 
 ---
 
